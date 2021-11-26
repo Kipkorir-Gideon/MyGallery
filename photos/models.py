@@ -8,4 +8,8 @@ class Image(models.Model):
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
     image = models.ImageField(upload_to = 'gallery')
-    
+
+
+
+class Category(models.Model):
+    name = models.CharField()
