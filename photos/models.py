@@ -12,4 +12,9 @@ class Image(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField()
+    category_name = models.CharField()
+
+
+
+class Location(models.Model):
+    location_name = models.CharField(max_length=30)
