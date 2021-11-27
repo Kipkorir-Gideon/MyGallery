@@ -52,6 +52,14 @@ class Category(models.Model):
     def delete_category(self):
         self.delete()
 
+    #Method for updating category
+    @classmethod
+    def update_location(cls,id,name):
+        cls.objects.filter(id=id).update(location_name = name)
+
+    def __str__(self):
+        return self.category_name
+
 
 
 class Location(models.Model):
@@ -63,3 +71,11 @@ class Location(models.Model):
 
     def delete_location(self):
         self.delete()
+
+    #Method for updating location
+    @classmethod
+    def update_location(cls,id,name):
+        cls.objects.filter(id=id).update(location_name = name)
+
+    def __str__(self):
+        return self.location_name
