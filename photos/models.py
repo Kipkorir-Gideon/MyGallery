@@ -9,6 +9,7 @@ class Image(models.Model):
     location = models.ForeignKey(Location,on_delete=models.CASCADE)
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     image = CloudinaryField('image')
+    time_posted = models.DateTimeField(auto_now_add=True)
 
     def save_image(self):
         self.save()
@@ -45,7 +46,20 @@ class Image(models.Model):
 class Category(models.Model):
     category_name = models.CharField()
 
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        self.delete()
+
 
 
 class Location(models.Model):
     location_name = models.CharField(max_length=30)
+
+
+    def save_location(self):
+        self.save()
+
+    def delete_location(self):
+        self.delete()
