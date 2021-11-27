@@ -3,6 +3,8 @@ from cloudinary.models import CloudinaryField
 import datetime as dt
 
 # Create your models here.
+
+#Image model
 class Image(models.Model):
     name = models.CharField(max_length=30)
     descrption = models.CharField()
@@ -42,7 +44,7 @@ class Image(models.Model):
         return self.image
 
 
-
+#Category model
 class Category(models.Model):
     category_name = models.CharField()
 
@@ -61,7 +63,7 @@ class Category(models.Model):
         return self.category_name
 
 
-
+#Location model
 class Location(models.Model):
     location_name = models.CharField(max_length=30)
 
