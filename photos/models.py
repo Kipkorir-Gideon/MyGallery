@@ -6,7 +6,7 @@ import datetime as dt
 
 #Category model
 class Category(models.Model):
-    category_name = models.CharField()
+    category_name = models.CharField(max_length=100)
 
     def save_category(self):
         self.save()
@@ -25,7 +25,7 @@ class Category(models.Model):
 
 #Location model
 class Location(models.Model):
-    location_name = models.CharField(max_length=30)
+    location_name = models.CharField(max_length=100)
 
 
     def save_location(self):
@@ -45,7 +45,7 @@ class Location(models.Model):
 #Image model
 class Image(models.Model):
     name = models.CharField(max_length=30)
-    descrption = models.CharField()
+    descrption = models.TextField()
     location = models.ForeignKey(Location,on_delete=models.CASCADE)
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     image = CloudinaryField('image')

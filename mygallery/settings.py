@@ -13,20 +13,20 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 import os
-import django_heroku
-import dj_database_url
-from decouple import config,Csv
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+# import django_heroku
+# import dj_database_url
+# from decouple import config,Csv
+# import cloudinary
+# import cloudinary.uploader
+# import cloudinary.api
 
 
-cloudinary.config(
-    cloud_name =config('CLOUD_NAME'),
-    api_key=config('CLOUD_API_KEY'), 
-    api_secret=config('API_SECRET'),
-    secure = config('SECURE'),
-)
+# cloudinary.config(
+#     cloud_name =config('CLOUD_NAME'),
+#     api_key=config('CLOUD_API_KEY'), 
+#     api_secret=config('API_SECRET'),
+#     secure = config('SECURE'),
+# )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -95,8 +95,10 @@ WSGI_APPLICATION = 'mygallery.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'photos',
+        'USER': 'access',
+        'PASSWORD': 'gideon.'
     }
 }
 
@@ -125,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
