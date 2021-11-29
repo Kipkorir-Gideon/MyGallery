@@ -4,7 +4,7 @@ from django.http import HttpResponse, Http404
 import datetime as dt
 
 # Create your views here.
-def gallery(request):
+def photos(request):
     photos = Image.objects.all()
     date = dt.date.today()
     return render(request, 'home.html', {'photos': photos, 'date': date})
