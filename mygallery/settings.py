@@ -14,19 +14,20 @@ from pathlib import Path
 
 import os
 # import django_heroku
-# import dj_database_url
-# from decouple import config,Csv
-# import cloudinary
-# import cloudinary.uploader
-# import cloudinary.api
+import dj_database_url
+from decouple import config,Csv
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
-# cloudinary.config(
-#     cloud_name =config('CLOUD_NAME'),
-#     api_key=config('CLOUD_API_KEY'), 
-#     api_secret=config('API_SECRET'),
-#     secure = config('SECURE'),
-# )
+cloudinary.config( 
+  cloud_name = "drroulnbj", 
+  api_key = "361532426689212", 
+  api_secret = "tZ8lSv3Vt_tE-M5g5W_08OAk0R4" 
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

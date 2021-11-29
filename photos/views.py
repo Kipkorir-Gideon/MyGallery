@@ -8,3 +8,21 @@ def photos(request):
     photos = Image.objects.all()
     date = dt.date.today()
     return render(request, 'home.html', {'photos': photos, 'date': date})
+
+
+def category(request, name):
+    category = Category.objects.get(name=name)
+    photos = Image.objects.filter(category=category).order_by('-time_posted')
+    return render(request, 'category.html', {'photos': photos, 'category': category})
+
+
+def search_location(request):
+    if 'location' in request.GET and request.GET["location"]:
+        image_location = request.GET.get("location")
+        searched_images = Image.filter_by_location(image_location)
+        message = f"{image_location}"
+        print("Image.......",searched_images)
+        return render(request, 'location.html', {"message": message, "images": searched_images})
+    else:
+        message = "You haven't searched for any image location"
+        return render(request, 'location.html', {"message": message})
