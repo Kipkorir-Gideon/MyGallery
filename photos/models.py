@@ -4,6 +4,44 @@ import datetime as dt
 
 # Create your models here.
 
+#Category model
+class Category(models.Model):
+    category_name = models.CharField()
+
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        self.delete()
+
+    #Method for updating category
+    @classmethod
+    def update_category(cls,id,name):
+        cls.objects.filter(id=id).update(location_name = name)
+
+    def __str__(self):
+        return self.category_name
+
+
+#Location model
+class Location(models.Model):
+    location_name = models.CharField(max_length=30)
+
+
+    def save_location(self):
+        self.save()
+
+    def delete_location(self):
+        self.delete()
+
+    #Method for updating location
+    @classmethod
+    def update_location(cls,id,name):
+        cls.objects.filter(id=id).update(location_name = name)
+
+    def __str__(self):
+        return self.location_name
+
 #Image model
 class Image(models.Model):
     name = models.CharField(max_length=30)
@@ -42,42 +80,3 @@ class Image(models.Model):
 
     def __str__(self):
         return self.image
-
-
-#Category model
-class Category(models.Model):
-    category_name = models.CharField()
-
-    def save_category(self):
-        self.save()
-
-    def delete_category(self):
-        self.delete()
-
-    #Method for updating category
-    @classmethod
-    def update_location(cls,id,name):
-        cls.objects.filter(id=id).update(location_name = name)
-
-    def __str__(self):
-        return self.category_name
-
-
-#Location model
-class Location(models.Model):
-    location_name = models.CharField(max_length=30)
-
-
-    def save_location(self):
-        self.save()
-
-    def delete_location(self):
-        self.delete()
-
-    #Method for updating location
-    @classmethod
-    def update_location(cls,id,name):
-        cls.objects.filter(id=id).update(location_name = name)
-
-    def __str__(self):
-        return self.location_name
