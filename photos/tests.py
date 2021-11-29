@@ -11,7 +11,24 @@ class ImageTestClass(TestCase):
         self.image = Image(name='Image1', description='An image to test the posting method.', location= self.location, category= self.category)
         self.image.save()
 
+    def test_instance(self):
+        self.assertTrue(isinstance(self.image,Image))
 
+    def test_save_method(self):
+        self.image.save_image()
+        image = Image.objects.all()      
+        self.assertTrue(len(image) >0)
+
+    def test_delete_image(self):
+        self.image.delete_image()
+        image = Image.objects.all()
+        self.assertTrue(len(image)== 0)
+
+    def test_update_image(self):
+        self.image.save_image()
+        self.image.update_image(self.image.id, 'images/gidz.jpg')
+        changed_img = Image.objects.filter(image='images/gidz.jpg')
+        self.assertTrue(len(changed_img) > 0)
 
 
 class CategoryTestClass(TestCase):
@@ -62,6 +79,6 @@ class LocationTestClass(TestCase):
        
     def test_update_location(self):
         self.location.save_location()
-        self.location.update_location(self.location.id, 'Karen')
-        changed_location = Location.objects.filter(name ='Karen')
+        self.location.update_location(self.location.id, 'Karatina')
+        changed_location = Location.objects.filter(name ='Karatina')
         self.assertTrue(len(changed_location) > 0) 
