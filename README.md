@@ -26,7 +26,7 @@ Admin roles:
 
 
 ## Setup | Installation Requirements
-1. python3.8
+1. python3.9
 2. virtualenv
 3. requirements.txt
 4. django
