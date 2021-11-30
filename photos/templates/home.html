@@ -3,26 +3,25 @@
 {% block content %}
 
 <div class="container">
-    <div class="row mt-3">
-        <div class="col-md">
-            <div class="card-columns col-md">
-                {% for photo in photos %}
+    <div class="row p-4">
+        {% for photo in photos %}
 
-                <div class = "col-md" data-toggle ="modal" data-target="#{{photo.id}}">
-                    <img src="{{photo.image.url}}" alt="" class="img-fluid"style="height: 100%; width: 100%; padding: 1%;">
-                </div>
+        <div class="col-md-4 " data-toggle="modal" data-target="#{{photo.id}}">
+            <img src="{{photo.image.url}}" alt="" class="img-fluid" style="height: 100%; width: 100%; padding: 1%;">
+        </div>
 
-                {% empty %}
-                <div class="row">
-                    <h2 class="text-center" style="color: rgb(210, 30, 54)">No Images</h2>
-                </div>
-            </div>
-            <div class="modal fade" id="{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <button type="button" class="close" style="color: red ; font-size:50px; font-weight:900" data-dismiss="modal" aria-label="Close">
+        {% empty %}
+        <div class="row">
+            <h2 class="text-center" style="color: rgb(210, 30, 54)">No Images</h2>
+        </div>
+    </div>
+    <div class="modal fade" id="{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" style="color: red ; font-size:50px; font-weight:900"
+                        data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h2 class="desc">{{photo.title}}</h2>
@@ -30,21 +29,21 @@
                     <h4>Location: <span class="category">{{photo.location.title}}</span></h4>
                     <h4>Category: <span class="category">{{photo.category.title}}</span></h4>
                     <h4>Posted on: <small class="category">{{photo.posted_at}}</small></h4>
-                    Photo URL:<input type="text" value="{{photo.image.url}}" class="btn btn-success form-control photoUrl">
-                    </div>
-                    <div class="modal-body">
+                    Photo URL:<input type="text" value="{{photo.image.url}}"
+                        class="btn btn-success form-control photoUrl">
+                </div>
+                <div class="modal-body">
                     <div class="row">
                         <div class="">
-                        <img src="{{photo.image.url}}" class="img-thumbnail" alt="Image" onclick="window.open(this.src)">
+                            <img src="{{photo.image.url}}" class="img-thumbnail" alt="Image"
+                                onclick="window.open(this.src)">
                         </div>
                     </div>
-                    </div>
-                </div>
                 </div>
             </div>
-            {% endfor%}
         </div>
     </div>
+    {% endfor%}
 </div>
 
 
