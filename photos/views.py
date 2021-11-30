@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect,get_object_or_404
 from .models import Image,Location,Category
 from django.http import HttpResponse, Http404
 import datetime as dt
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def photos(request):
