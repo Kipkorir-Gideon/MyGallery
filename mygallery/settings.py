@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 import os
-# import django_heroku
+import django_heroku
 import dj_database_url
 from decouple import config,Csv
 import cloudinary
@@ -175,4 +175,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
